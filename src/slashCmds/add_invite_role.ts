@@ -60,6 +60,6 @@ export const data: SlashCmd['data'] = {
 };
 
 export const conf: SlashCmd['conf'] = {
-  permLevel: PERMISSION.Administrator,
-  guildOnly: false,
+  permLevel: PERMISSION.ServerOwner,
+  guildOnly: true,
 };
