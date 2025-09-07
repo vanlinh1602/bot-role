@@ -7,8 +7,6 @@ RUN npm install
 
 COPY . .
 
-COPY .env .env
-
 RUN npm run build
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
