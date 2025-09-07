@@ -1,5 +1,5 @@
 import { PERMISSION } from 'configs/permissions';
-import { ApplicationCommandOptionType, Client, CommandInteraction } from 'discord.js';
+import { Client, CommandInteraction } from 'discord.js';
 import { RoleInviteConfig } from 'models';
 import type { SlashCmd } from 'types';
 
@@ -46,13 +46,13 @@ export const data: SlashCmd['data'] = {
     {
       name: 'invite_code',
       description: 'Invite code',
-      type: ApplicationCommandOptionType.String,
+      type: 3,
       required: true,
     },
     {
       name: 'role',
       description: 'Role',
-      type: ApplicationCommandOptionType.Role,
+      type: 8,
       required: true,
     },
   ],
