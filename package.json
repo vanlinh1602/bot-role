@@ -1,0 +1,65 @@
+{
+  "name": "butler-kuma",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "copy:assets": "cpx 'src/**/*.{html,png,jpg,css,pug,svg,xlsx,gif,json}' 'dist/'",
+    "start": "npm run build && node ./dist/index.js",
+    "dev": "nodemon",
+    "prebuild": "npm run clean",
+    "build": "npx tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "postbuild": "npm run copy:assets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vanlinh1602/discord-bot-template.git"
+  },
+  "keywords": [],
+  "author": "xbot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanlinh1602/discord-bot-template.git/issues"
+  },
+  "homepage": "https://github.com/vanlinh1602/discord-bot-template.git#readme",
+  "dependencies": {
+    "async": "^3.2.6",
+    "discord.js": "^14.17.3",
+    "dotenv-flow": "^4.1.0",
+    "glob": "^11.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.24",
+    "@types/dotenv-flow": "^3.3.3",
+    "@types/glob": "^8.1.0",
+    "@types/lodash": "^4.17.14",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.17.12",
+    "@types/validator": "^13.12.2",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "cpx": "^1.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^2.8.8",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3"
+  }
+}
