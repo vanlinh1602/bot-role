@@ -7,8 +7,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
-
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
   CMD node -e "process.exit(0)" || exit 1
 
