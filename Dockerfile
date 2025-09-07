@@ -5,9 +5,6 @@ FROM node:18.20.2 AS build
 
 WORKDIR /app
 
-# Install build tools for native deps (e.g., sqlite3)
-RUN apk add --no-cache python3 make g++
-
 # Install deps first (better cache)
 COPY package.json bun.lockb* package-lock.json* pnpm-lock.yaml* yarn.lock* ./
 RUN \
@@ -25,7 +22,7 @@ RUN npm run build
 
 
 # --- Runtime stage ---
-FROM node:20-alpine AS runner
+FROM node:18.20.2 AS runner
 WORKDIR /app
 
 # Create non-root user
