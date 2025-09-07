@@ -1,9 +1,9 @@
 import { PERMISSION } from 'configs/permissions';
-import { Client, CommandInteraction } from 'discord.js';
+import { Client } from 'discord.js';
 import { RoleInviteConfig } from 'models';
 import type { SlashCmd } from 'types';
 
-export const run: SlashCmd['run'] = async (client: Client, interaction: CommandInteraction) => {
+export const run: SlashCmd['run'] = async (client: Client, interaction: any) => {
   await interaction.deferReply();
   const inviteCode = interaction.options.get('invite_code')?.value as string;
   const role = interaction.options.get('role')?.value as string;

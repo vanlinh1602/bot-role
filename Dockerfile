@@ -7,10 +7,12 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
   CMD node -e "process.exit(0)" || exit 1
 
 # Expose nothing (Discord bot is outbound only)
 
 # Default command
-CMD ["npm", "run", "dev"]
+CMD ["node", "./dist/index.js"]
