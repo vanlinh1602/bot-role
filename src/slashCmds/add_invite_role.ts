@@ -9,7 +9,7 @@ export const run: SlashCmd['run'] = async (client: Client, interaction: any) => 
   const role = interaction.options.get('role')?.value as string;
 
   if (!inviteCode || !role) {
-    await interaction.editReply('Invalid invite code or role');
+    await interaction.editReply('Vui lòng nhập mã invite và role');
     return;
   }
 
@@ -18,7 +18,7 @@ export const run: SlashCmd['run'] = async (client: Client, interaction: any) => 
   });
 
   if (existingConfig) {
-    await interaction.editReply('Invite code already exists');
+    await interaction.editReply('Mã invite đã tồn tại');
     return;
   }
 
@@ -32,20 +32,19 @@ export const run: SlashCmd['run'] = async (client: Client, interaction: any) => 
       roleId: role,
       cacheCount,
     });
+    await interaction.editReply(`Cấu hình <@&${role}> cho mã mời ${inviteCode} thành công`);
   } else {
-    await interaction.editReply('Invite code not found');
-    return;
+    await interaction.editReply('Mã invite không tồn tại');
   }
-  await interaction.editReply('Invite role added');
 };
 
 export const data: SlashCmd['data'] = {
   name: 'add_invite_role',
-  description: 'Add invite role',
+  description: 'Thêm role vào mã invite',
   options: [
     {
       name: 'invite_code',
-      description: 'Invite code',
+      description: 'Mã mời vào server',
       type: 3,
       required: true,
     },

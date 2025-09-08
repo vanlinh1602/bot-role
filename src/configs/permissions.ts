@@ -49,14 +49,14 @@ export const PERM_LEVELS: {
   {
     level: 8,
     name: PERMISSION.ServerOwner,
-    check: async (message) => message.guild?.ownerId === message.client.user.id,
+    check: async (message) => message.guild?.ownerId === getUser(message).id,
   },
 
   // Has some limited access like rebooting the bot or reloading commands.
   {
     level: 9,
     name: PERMISSION.BotAdmin,
-    check: async () => false,
+    check: async (message) => getUser(message).id === process.env.BOT_ADMIN,
   },
 
   /*
